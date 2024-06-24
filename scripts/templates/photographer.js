@@ -1,5 +1,5 @@
 function photographerTemplate(data) {
-    const { name, portrait, city, country, tagline, price } = data;
+    const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -20,6 +20,10 @@ function photographerTemplate(data) {
         article.appendChild(location)
         article.appendChild(pTagline)
         article.appendChild(pPrice)
+        console.log(id);
+        article.addEventListener('click', () => {
+            window.location.href = `photographer.html?id=${id}`
+        })
         return (article);
     }
     return { name, picture, getUserCardDOM }
