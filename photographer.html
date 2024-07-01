@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -9,25 +9,33 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" aria-label="Retourner sur la page d'accueil">
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo">
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+      <section class="photograph-header" role="region" aria-labelledby="photograph-header-title">
+          <div class="photograph-title">
+            <h1 id="nom-photographe">Nom Photographe</h1>
+            <p id="location">Ville, Pays</p>
+            <p id="tagline">Tagline Tagline Tagline Tagline</p>
+          </div>
+          <button class="contact_button" aria-label="Contactez-moi" onclick="displayModal()">Contactez-moi</button>
+          <div class="photograph-picture">
+            <img src="assets/photographers/account.png" alt="Photographe 1">
+          </div>
+      </section>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_modal_title">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="fermer la fenêtre">
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="name">Prénom</label>
+						<input type="text" name="name" id="name">
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>

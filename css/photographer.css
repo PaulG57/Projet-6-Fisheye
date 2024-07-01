@@ -1,3 +1,36 @@
+header {
+    margin: 30px 100px 30px 100px;
+}
+header img {
+    height: 50px;
+}
+
+.photograph-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#nom-photographe {
+    font-size: 64px;
+    margin: 0;
+    color: #D3573C;
+}
+
+#location {
+    font-size: 24px;
+    margin: 0;
+    color: #901C1C;
+}
+
+#tagline {
+    font-size: 18px;
+    margin: 0;
+    color: #525252;
+    padding: 5px 0;
+}
+
 #contact_modal {
     display: none;
 }
@@ -6,6 +39,10 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
 }
 
 .contact_button {
