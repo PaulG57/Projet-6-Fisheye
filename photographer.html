@@ -16,13 +16,13 @@
     <main id="main">
       <section class="photograph-header" role="region" aria-labelledby="photograph-header-title">
           <div class="photograph-title">
-            <h1 id="nom-photographe">Nom Photographe</h1>
-            <p id="location">Ville, Pays</p>
-            <p id="tagline">Tagline Tagline Tagline Tagline</p>
+            <h1 id="nom-photographe"></h1>
+            <p id="location"></p>
+            <p id="tagline"></p>
           </div>
           <button class="contact_button" aria-label="Contactez-moi" onclick="displayModal()">Contactez-moi</button>
-          <div class="photograph-picture">
-            <img src="assets/photographers/account.png" alt="Photographe 1">
+          <div>
+            <img id="photograph-picture" src="" alt="Photographe 1">
           </div>
       </section>
     </main>
@@ -37,7 +37,7 @@
 						<label for="name">Prénom</label>
 						<input type="text" name="name" id="name">
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="Envoyer le formulaire">Envoyer</button>
 				</form>
 			</div>
 		</div>

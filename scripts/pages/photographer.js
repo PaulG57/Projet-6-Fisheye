@@ -1,21 +1,37 @@
 //Mettre le code JavaScript lié à la page photographer.html
-async function getPhotographerById(id) {
+
+// Récupérer les éléments du DOM
+const nomPhotographe = document.getElementById("nom-photographe");
+const locationPhotographe = document.getElementById("location");
+const taglinePhotographe = document.getElementById("tagline");
+const pricePhotographe = document.getElementById("price");
+const photographPicture = document.getElementById("photograph-picture");
+
+// Récupérer l'ID depuis l'URL
+const idUrl = new URL(window.location.href).searchParams.get("id");
+const id = Number(idUrl);
+
+// Récupérer les informations du photographe depuis le fichier JSON
+async function getPhotographers() {
     const response = await fetch("data/photographers.json");
-    const data = await response.json();
-    
-    const photographer = data.photographers.find((photographer) => photographer.id === id);
-   console.log("photographer", photographer);
-    return photographer;
+    const photographers = await response.json();
+    return photographers;
 }
 
-async function init() {
-    const url = new URL(window.location.href);
-    const id = url.searchParams.get("id");
-    const photographerId = Number(id);
-    const photographerData = await getPhotographerById(photographerId);
+// Afficher les informations du photographe dans le DOM
+async function displayPhotographer(id) {
+    const photographers = await getPhotographers();
+    const selectedPhotographer = photographers.find(photographer => photographer.id === id);
 
-    console.log(photographerData);
+    nomPhotographe.textContent = selectedPhotographer.name;
+    locationPhotographe.textContent = `${selectedPhotographer.city}, ${selectedPhotographer.country}`;
+    taglinePhotographe.textContent = selectedPhotographer.tagline;
+    pricePhotographe.textContent = `${selectedPhotographer.price}€/jour`;
+    photographPicture.setAttribute("src", `assets/photographers/${selectedPhotographer.portrait}`);
+    photographPicture.setAttribute("alt", selectedPhotographer.name);
 }
+
+displayPhotographer(id);
 
 document.addEventListener('keydown', function(event) {
     // Vérifie si la touche "Backspace" ou "Alt + Flèche gauche" est pressée
@@ -26,5 +42,3 @@ document.addEventListener('keydown', function(event) {
         window.history.back();  // Revient en arrière dans l'historique
     }
 });
-
-init();

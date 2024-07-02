@@ -1,8 +1,14 @@
 header {
-    margin: 30px 100px 30px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
 }
-header img {
+
+.logo {
     height: 50px;
+    margin-left: 100px;
 }
 
 .photograph-title {
