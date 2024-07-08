@@ -11,6 +11,7 @@ function photographerTemplate(data) {
         const img = document.createElement('img');
         img.setAttribute("src", picture);
         img.setAttribute("alt", name); // Ajouter un attribut alt
+        img.className = "photograph-picture";
 
         const h2 = document.createElement('h2');
         h2.id = `photographer-${id}-name`;
