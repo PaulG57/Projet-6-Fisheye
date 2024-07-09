@@ -32,7 +32,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 30px 100px 0 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +56,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 70px;
+    gap: 25px;
     margin: 100px 100px 0 100px;
 }
 
@@ -70,6 +70,29 @@
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+}
+
+.media-title {
+    font-size: larger;
+    color: #901C1C;
+    padding: 5px;
+}
+
+#price {
+    position: fixed;
+    bottom: -20px;
+    right: 30px;
+    padding: 15px;
+    background-color: #DB8876;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#contact_modal {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 60%;
 }
 
 .modal {

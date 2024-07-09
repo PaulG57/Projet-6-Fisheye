@@ -44,6 +44,11 @@ async function displayPhotographer(id) {
     photographPicture.className = "photograph-picture";
     photographerHeader.appendChild(photographPicture);
 
+    const price = document.createElement("p");
+    price.id = "price";
+    price.textContent = `${selectedPhotographer.price}€/jour`;
+    document.querySelector(".photograph-gallery").appendChild(price);
+
     // Afficher les medias du photographe dans le DOM
     media.forEach((media) => {
         const mediaCard = document.createElement("figure");
