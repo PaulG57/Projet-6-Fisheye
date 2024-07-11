@@ -3,20 +3,20 @@ const idPhotographer = new URL(window.location.href).searchParams.get("id");
 const id = Number(idPhotographer);
 
 // Récupérer les informations du photographe depuis le fichier JSON
-async function getPhotographers() {
+async function getPhotographer(photographerId) {
     const response = await fetch("data/photographers.json");
     const data = await response.json();
-    console.log(data);
-    return data;
+    const photographer = data.photographers.find(photographer => photographer.id === photographerId);
+    const media = data.media.filter(media => media.photographerId === photographerId);
+    return { photographer, media };
 }
 
 // Afficher les informations du photographe dans le DOM
-async function displayPhotographer(id) {
-    const data = await getPhotographers();
-    const selectedPhotographer = data.photographers.find(photographer => photographer.id === id);
-    const media = data.media.filter(media => media.photographerId === id);
+async function displayPhotographer() {
+    const data = await getPhotographer(id);
+    const { photographer, media } = data;
 
-    console.log(selectedPhotographer);
+    console.log(photographer);
     console.log(media);
 
     const infoPhotographer = document.createElement("div");
@@ -24,73 +24,44 @@ async function displayPhotographer(id) {
 
     const namePhotographer = document.createElement("h1");
     namePhotographer.id = "name-photographer";
-    namePhotographer.textContent = selectedPhotographer.name;
+    namePhotographer.textContent = photographer.name;
 
     const locationPhotographer = document.createElement("p");
     locationPhotographer.id = "location";
-    locationPhotographer.textContent = `${selectedPhotographer.city}, ${selectedPhotographer.country}`;
+    locationPhotographer.textContent = `${photographer.city}, ${photographer.country}`;
 
     const taglinePhotographer = document.createElement("p");
     taglinePhotographer.id = "tagline";
-    taglinePhotographer.textContent = selectedPhotographer.tagline;
+    taglinePhotographer.textContent = photographer.tagline;
     infoPhotographer.append(namePhotographer, locationPhotographer, taglinePhotographer);
-    
+
     const photographerHeader = document.querySelector(".photograph-header");
     photographerHeader.prepend(infoPhotographer);
 
     const photographPicture = document.createElement("img");
-    photographPicture.setAttribute("src", `assets/photographers/${selectedPhotographer.portrait}`);
-    photographPicture.setAttribute("alt", selectedPhotographer.name);
+    photographPicture.setAttribute("src", `assets/photographers/${photographer.portrait}`);
+    photographPicture.setAttribute("alt", photographer.name);
     photographPicture.className = "photograph-picture";
     photographerHeader.appendChild(photographPicture);
 
     const price = document.createElement("p");
     price.id = "price";
-    price.textContent = `${selectedPhotographer.price}€/jour`;
+    price.textContent = `${photographer.price}€/jour`;
     document.querySelector(".photograph-gallery").appendChild(price);
 
     // Afficher les medias du photographe dans le DOM
-    media.forEach((media) => {
-        const mediaCard = document.createElement("figure");
-        mediaCard.className = "media-card";
-    
-    let mediaElement;
-    const prenom = selectedPhotographer.name.split(" ")[0];
-
-    if (media.image) {
-        mediaElement = document.createElement("img");
-        mediaElement.setAttribute("src", `assets/images/${prenom}/${media.image}`);
-        mediaElement.setAttribute("alt", media.title);
-        mediaElement.className = "media-image";
-    } else if (media.video) {
-        mediaElement = document.createElement("video");
-        const sourceElement = document.createElement("source");
-        sourceElement.setAttribute("src", `assets/images/${prenom}/${media.video}`);
-        sourceElement.setAttribute("type", "video/mp4");
-        mediaElement.appendChild(sourceElement);
-        mediaElement.setAttribute("controls", "controls");
-        mediaElement.className = "media-video";
-    }
-    
-        const mediaTitle = document.createElement("figcaption");
-        mediaTitle.className = "media-title";
-        mediaTitle.textContent = media.title;
-    
-        mediaCard.appendChild(mediaElement);
-        mediaCard.appendChild(mediaTitle);
-        document.querySelector(".photograph-gallery").appendChild(mediaCard);
-    });
-    
+    displayMedia(photographer, media);
 }
 
-displayPhotographer(id);
+// Lancer l'affichage du photographe et des médias
+displayPhotographer();
 
+// Ajouter un gestionnaire pour les touches de retour en arrière
 document.addEventListener('keydown', function(event) {
-    // Vérifie si la touche "Backspace" ou "Alt + Flèche gauche" est pressée
     if (event.key === 'Backspace') {
-        event.preventDefault(); // Empêche l'action par défaut du Backspace
-        window.history.back();  // Revient en arrière dans l'historique
+        event.preventDefault();
+        window.history.back();
     } else if (event.altKey && event.key === 'ArrowLeft') {
-        window.history.back();  // Revient en arrière dans l'historique
+        window.history.back();
     }
 });

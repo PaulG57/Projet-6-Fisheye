@@ -26,11 +26,7 @@ function photographerTemplate(data) {
         const pPrice = document.createElement('p');
         pPrice.textContent = `${price}€/jour`;
 
-        article.appendChild(img);
-        article.appendChild(h2);
-        article.appendChild(location);
-        article.appendChild(pTagline);
-        article.appendChild(pPrice);
+        article.append(img, h2, location, pTagline, pPrice);
 
         // Rendre la carte focusable et gérer les événements clavier
         article.tabIndex = 0;
