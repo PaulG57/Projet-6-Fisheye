@@ -49,6 +49,10 @@ async function displayPhotographer() {
     price.textContent = `${photographer.price}€/jour`;
     document.querySelector(".photograph-gallery").appendChild(price);
 
+    // Afficher le nom du photographe dans le titre de la modal
+    const modalTitle = document.getElementById("contact_modal_title");
+    modalTitle.insertAdjacentText("beforeend", photographer.name);
+
     // Afficher les medias du photographe dans le DOM
     displayMedia(photographer, media);
 }

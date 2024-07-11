@@ -8,11 +8,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeModal();
-    }})
-
 document.getElementById('contact_form').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
       
@@ -30,10 +25,8 @@ email: email,
 message: message
 };
       
-// Affiche les données du formulaire dans la console (pour le debug)
+// Affiche les données du formulaire dans la console
 console.log("Formulaire envoyé :", formData);
-
 closeModal();
-
 });
 
