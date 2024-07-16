@@ -29,7 +29,14 @@ function displayMedia(selectedPhotographer, media) {
     
         mediaCard.append(mediaElement, mediaTitle);
         document.querySelector(".photograph-gallery").appendChild(mediaCard);
-        
+
+        console.log(mediaCard);
+
+        mediaCard.addEventListener("click", () => {
+            openLightboxModal();
+            updateLightboxContent(Array.from(document.getElementsByClassName("media-card")).indexOf(mediaCard));
+        });
+     
         // Rendre la carte focusable et gérer les événements clavier
         mediaCard.tabIndex = 0;
     });

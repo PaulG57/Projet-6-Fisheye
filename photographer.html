@@ -19,7 +19,15 @@
       </section>
       <section class="photograph-gallery" role="region" aria-labelledby="photograph-gallery-title"></section>
     </main>
-    <div id="contact_modal" role="dialog" aria-labelledby="contact_modal_title">
+    <div id="lightbox_modal" role="dialog" aria-labelledby="image closeup view" aria-hidden="true">
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Fermer la lightbox" onclick="closeLightboxModal()">×</button>
+        <button class="lightbox-prev" aria-label="Image précédente" onclick="prevMedia()">&#10094;</button>
+        <div class="lightbox-content"></div>
+        <button class="lightbox-next" aria-label="Image suivante" onclick="nextMedia()">&#10095;</button>
+      </div>
+    </div>
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_modal_title" aria-hidden="true">
       <div class="modal">
         <header>
           <h2 id="contact_modal_title">Contactez-moi <br></h2>
@@ -39,9 +47,10 @@
           <button type="submit" class="contact_button" aria-label="Envoyer le formulaire">Envoyer</button>
         </form>
       </div>
-    </div>        
+    </div>
+    <script src="scripts/pages/photographer.js"></script>        
     <script src="scripts/templates/medias.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>
