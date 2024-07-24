@@ -49,6 +49,17 @@ async function displayPhotographer() {
     price.textContent = `${photographer.price}€/jour`;
     document.querySelector(".photograph-gallery").appendChild(price);
 
+    // Afficher le total de likes
+    let totalLikes = 0;
+    media.forEach((media) => {
+        totalLikes += media.likes;
+    });
+
+    const likes = document.createElement("p");
+    likes.id = "likes";
+    likes.textContent = `${totalLikes} ❤`;
+    price.prepend(likes);
+
     // Afficher le nom du photographe dans le titre de la modal
     const modalTitle = document.getElementById("contact_modal_title");
     modalTitle.insertAdjacentText("beforeend", photographer.name);

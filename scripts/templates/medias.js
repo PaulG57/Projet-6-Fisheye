@@ -26,18 +26,34 @@ function displayMedia(selectedPhotographer, media) {
         const mediaTitle = document.createElement("figcaption");
         mediaTitle.className = "media-title";
         mediaTitle.textContent = media.title;
+
+    // Afficher les likes
+    const mediaLikes = document.createElement("p");
+    mediaLikes.className = "media-likes";
+    mediaLikes.innerHTML = `${media.likes} <span class="heart">❤</span>`;
+    mediaTitle.append(mediaLikes);
+
+    mediaLikes.addEventListener("click", (event) => {
+        event.stopPropagation();
+    const currentLikes = parseInt(mediaLikes.childNodes[0].nodeValue.trim(), 10);
+    const heartSpan = mediaLikes.querySelector(".heart");
+
+    if (heartSpan.classList.contains("liked")) {
+        heartSpan.classList.remove("liked");
+    mediaLikes.childNodes[0].nodeValue = `${currentLikes - 1} `;
+    } else {
+        heartSpan.classList.add("liked");
+        mediaLikes.childNodes[0].nodeValue = `${currentLikes + 1} `;
+        }
+    });
+
     
-        mediaCard.append(mediaElement, mediaTitle);
-        document.querySelector(".photograph-gallery").appendChild(mediaCard);
+    mediaCard.append(mediaElement, mediaTitle);
+    document.querySelector(".photograph-gallery").appendChild(mediaCard);
 
-        console.log(mediaCard);
-
-        mediaCard.addEventListener("click", () => {
-            openLightboxModal();
-            updateLightboxContent(Array.from(document.getElementsByClassName("media-card")).indexOf(mediaCard));
-        });
+    console.log(mediaCard);
      
-        // Rendre la carte focusable et gérer les événements clavier
+    // Rendre la carte focusable et gérer les événements clavier
         mediaCard.tabIndex = 0;
     });
     
