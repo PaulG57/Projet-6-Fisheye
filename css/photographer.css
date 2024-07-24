@@ -80,13 +80,18 @@
     align-items: center;
     font-size: larger;
     color: #901C1C;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .media-title p {
     margin: 0;
+}
+
+.media-title-text {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 5px;	
 }
 
 .media-title span {
@@ -101,7 +106,7 @@
 
 #price {
     position: fixed;
-    bottom: -20px;
+    bottom: -5px;
     right: 30px;
     padding: 15px;
     background-color: #DB8876;

@@ -44,9 +44,9 @@ async function displayPhotographer() {
     photographPicture.className = "photograph-picture";
     photographerHeader.appendChild(photographPicture);
 
-    const price = document.createElement("p");
+    const price = document.createElement("div");
     price.id = "price";
-    price.textContent = `${photographer.price}€/jour`;
+    price.textContent = `${photographer.price}€ / jour`;
     document.querySelector(".photograph-gallery").appendChild(price);
 
     // Afficher le total de likes
@@ -57,7 +57,7 @@ async function displayPhotographer() {
 
     const likes = document.createElement("p");
     likes.id = "likes";
-    likes.textContent = `${totalLikes} ❤`;
+    likes.innerHTML = `${totalLikes} <span>❤</span>`;
     price.prepend(likes);
 
     // Afficher le nom du photographe dans le titre de la modal

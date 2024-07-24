@@ -24,12 +24,16 @@ function displayMedia(selectedPhotographer, media) {
     }
     
         const mediaTitle = document.createElement("figcaption");
+        const titleText = document.createElement("p");
+        titleText.textContent = media.title;
+        titleText.className = "media-title-text";
+        mediaTitle.appendChild(titleText);
         mediaTitle.className = "media-title";
-        mediaTitle.textContent = media.title;
 
     // Afficher les likes
     const mediaLikes = document.createElement("p");
     mediaLikes.className = "media-likes";
+    mediaLikes.ariaLabel = "likes";
     mediaLikes.innerHTML = `${media.likes} <span class="heart">❤</span>`;
     mediaTitle.append(mediaLikes);
 
