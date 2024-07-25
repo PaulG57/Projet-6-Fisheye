@@ -5,6 +5,9 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
 
 header {
     display: flex;
@@ -36,7 +39,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    cursor: pointer;
+    text-align: center;
 }
 
 .photograph-picture {
@@ -67,5 +70,5 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
-    margin-bottom: 5px;
+    margin: 15px 0 0 0;
 }
