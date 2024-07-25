@@ -1,4 +1,4 @@
-function photographerTemplate(data) {
+function photographerTemplate(data, titleLevel = 'h2') {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
@@ -6,16 +6,16 @@ function photographerTemplate(data) {
     function getUserCardDOM() {
         const article = document.createElement('article');
         article.setAttribute('role', 'article');
-        article.setAttribute('aria-labelledby', `photographer-${id}-name`);
+        article.setAttribute('aria-labelledby', `photographer card`);
 
         const img = document.createElement('img');
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
         img.className = "photograph-picture";
 
-        const h2 = document.createElement('h2');
-        h2.id = `photographer-${id}-name`;
-        h2.textContent = name;
+        const title = document.createElement(titleLevel);
+        title.id = `photographer-${id}-name`;
+        title.textContent = name;
 
         const location = document.createElement('p');
         location.textContent = `${city}, ${country}`;
@@ -26,9 +26,9 @@ function photographerTemplate(data) {
         const pPrice = document.createElement('p');
         pPrice.textContent = `${price}€/jour`;
 
-        article.append(img, h2, location, pTagline, pPrice);
+        article.append(img, title, location, pTagline, pPrice);
 
-        // Rendre la carte focusable et gérer les événements clavier
+        // Rendre la carte focusable et gérer les événements clavier pour accessibilité
         article.tabIndex = 0;
         article.addEventListener('click', () => {
             window.location.href = `photographer.html?id=${id}`;
