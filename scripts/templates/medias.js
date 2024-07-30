@@ -1,5 +1,5 @@
 // Afficher les medias du photographe dans le DOM
-function displayMedia(selectedPhotographer, media) {
+function displayMedias(selectedPhotographer, media) {
 
     media.forEach((media) => {
         const mediaCard = document.createElement("figure");

@@ -42,5 +42,36 @@ function photographerTemplate(data) {
         return article;
     }
 
-    return { name, portrait, city, country, tagline, price, id, getUserCardDOM };
+    function getProfilePageDOM() {
+        const infoPhotographer = document.createElement("div");
+        infoPhotographer.classList.add("info-container");
+
+        const namePhotographer = document.createElement("h1");
+        namePhotographer.id = "name-photographer";
+        namePhotographer.textContent = name;
+
+        const locationPhotographer = document.createElement("p");
+        locationPhotographer.id = "location";
+        locationPhotographer.textContent = `${city}, ${country}`;
+
+        const taglinePhotographer = document.createElement("p");
+        taglinePhotographer.id = "tagline";
+        taglinePhotographer.textContent = tagline;
+
+        infoPhotographer.append(namePhotographer, locationPhotographer, taglinePhotographer);
+
+        const imagePhotographer = document.createElement("div");
+        imagePhotographer.classList.add("image-container");
+
+        const photographPicture = document.createElement("img");
+        photographPicture.src = picture;
+        photographPicture.alt = name;
+        photographPicture.className = "photograph-picture";
+
+        imagePhotographer.appendChild(photographPicture);
+
+        return { infoPhotographer, imagePhotographer };
+    }
+
+    return { getUserCardDOM, getProfilePageDOM };
 }
