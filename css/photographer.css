@@ -60,12 +60,19 @@
     margin: 100px 100px 0 100px;
 }
 
+.photograph-gallery::after {
+    content: '';
+    width: 350px;
+    height: 10px;
+}
+
 .media-card {
   margin: 0;
   width: 350px;
   height: 351px;
   cursor: pointer;
 }
+
 
 .media-image, .media-video {
     width: 100%;
