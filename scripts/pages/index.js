@@ -1,10 +1,3 @@
-    async function getPhotographers() {
-        const reponse = await fetch("data/photographers.json");
-        const photographers = await reponse.json();
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return photographers;
-    }
-
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 

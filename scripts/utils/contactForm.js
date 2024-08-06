@@ -1,7 +1,10 @@
 const modal = document.getElementById("contact_modal");
 
 function displayModal() {
-	modal.style.display = "block";
+	modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
+    modal.tabIndex = 0;
+    document.getElementById("prenom").focus();
 }
 
 function closeModal() {
@@ -34,4 +37,3 @@ message: message
 console.log("Formulaire envoyé :", formData);
 closeModal();
 });
-

@@ -25,10 +25,6 @@
     padding: 10px 0;
 }
 
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -52,12 +48,33 @@
     cursor: pointer;
 }
 
+.tri {
+    margin: 50px 100px;
+    padding: 10px;
+}
+
+.tri label {
+    font-size: 23px;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.tri select {
+    font-size: larger;
+    padding: 10px;
+    color: #FAFAFA;
+    background-color: #901C1C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .photograph-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 25px;
-    margin: 100px 100px 0 100px;
+    margin: 0 100px 50px 100px;
 }
 
 .photograph-gallery::after {
@@ -111,7 +128,7 @@
     color: #901C1C !important;
 }
 
-#price {
+#totalLikesNprice {
     position: fixed;
     bottom: -5px;
     right: 30px;
@@ -126,21 +143,23 @@
     height: 20px;
 }
 
+/***** Contact Modal *****/
 #contact_modal {
+    display: none;
     position: fixed;
-    top: 10%;
-    left: 25%;
-    width: 60%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding: 35px;
     margin: auto;
 }
@@ -195,7 +214,7 @@ form textarea {
     border-radius: 5px;
 }
 
-/* Lightbox Modal */
+/***** Lightbox Modal *****/
 #lightbox_modal {
     width: 100%;
     height: 100%;

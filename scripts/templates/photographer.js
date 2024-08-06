@@ -42,7 +42,7 @@ function photographerTemplate(data) {
         return article;
     }
 
-    function getProfilePageDOM() {
+    function getProfilePhotographerInfoDOM() {
         const infoPhotographer = document.createElement("div");
         infoPhotographer.classList.add("info-container");
 
@@ -59,7 +59,10 @@ function photographerTemplate(data) {
         taglinePhotographer.textContent = tagline;
 
         infoPhotographer.append(namePhotographer, locationPhotographer, taglinePhotographer);
+        return infoPhotographer
+    }
 
+    function getProfilePhotographerImageDOM() {
         const imagePhotographer = document.createElement("div");
         imagePhotographer.classList.add("image-container");
 
@@ -69,9 +72,10 @@ function photographerTemplate(data) {
         photographPicture.className = "photograph-picture";
 
         imagePhotographer.appendChild(photographPicture);
-
-        return { infoPhotographer, imagePhotographer };
+        return imagePhotographer
     }
 
-    return { getUserCardDOM, getProfilePageDOM };
+   
+
+    return { getUserCardDOM, getProfilePhotographerInfoDOM, getProfilePhotographerImageDOM };
 }
