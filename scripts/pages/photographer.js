@@ -31,6 +31,16 @@ function sortMedias(medias, criteria) {
     }
 }
 
+// Afficher les médias dans le DOM
+function displayMedias(photographer, medias) {
+    const mediaContainer = document.querySelector(".photograph-gallery");
+    mediaContainer.innerHTML = ""; // Vider le conteneur avant d'ajouter les nouvelles cartes
+
+    medias.forEach(media => {
+        const mediaCard = new MediaCard(media, photographer.name);
+        mediaContainer.appendChild(mediaCard.createMediaCard());
+    });
+}
 
 // Trier et afficher les médias
 async function sortAndDisplayMedias(criteria) {
@@ -50,9 +60,10 @@ async function init() {
     const { photographer, medias } = await getPhotographerData(photographerId);
     displayPhotographerInfo(photographer);
     displayPhotographerName(photographer);
-    displayMedias(photographer, medias);
+    displayMedias(photographer, medias); // Ajouter cette ligne pour afficher les médias au chargement de la page
 }
 
+// Appeler la fonction init pour initialiser la page
 init();
 
 // Gestion des touches de retour en arrière
