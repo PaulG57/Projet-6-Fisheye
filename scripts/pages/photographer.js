@@ -32,12 +32,12 @@ function sortMedias(medias, criteria) {
 }
 
 // Afficher les médias dans le DOM
-function displayMedias(photographer, medias) {
+function displayMedias(medias, prenom) {
     const mediaContainer = document.querySelector(".photograph-gallery");
     mediaContainer.innerHTML = ""; // Vider le conteneur avant d'ajouter les nouvelles cartes
 
     medias.forEach(media => {
-        const mediaCard = new MediaCard(media, photographer.name);
+        const mediaCard = new MediaCard(media, prenom);
         mediaContainer.appendChild(mediaCard.createMediaCard());
     });
 }
@@ -58,12 +58,12 @@ select.addEventListener("change", function() {
 
 async function init() {
     const { photographer, medias } = await getPhotographerData(photographerId);
+    const prenom = photographer.name.split(" ")[0];
     displayPhotographerInfo(photographer);
     displayPhotographerName(photographer);
-    displayMedias(photographer, medias); // Ajouter cette ligne pour afficher les médias au chargement de la page
+    displayMedias(medias, prenom);
 }
 
-// Appeler la fonction init pour initialiser la page
 init();
 
 // Gestion des touches de retour en arrière

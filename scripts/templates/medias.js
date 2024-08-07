@@ -1,6 +1,6 @@
 class MediaCard {
-    constructor(media) {
-        this.media = new MediaFactory(media);
+    constructor(media, prenom) {
+        this.media = new MediaFactory(media, prenom);
     }
 
     createMediaCard() {
