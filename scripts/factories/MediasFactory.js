@@ -2,6 +2,7 @@ class Photo {
     constructor(data, prenom) {
         this.src = `assets/images/${prenom}/${data.image}`;
         this.title = data.title;
+        this.likes = data.likes;
     }
 
     createElement() {
@@ -17,6 +18,7 @@ class Video {
     constructor(data, prenom) {
         this.src = `assets/images/${prenom}/${data.video}`;
         this.title = data.title;
+        this.likes = data.likes;
     }
 
     createElement() {
