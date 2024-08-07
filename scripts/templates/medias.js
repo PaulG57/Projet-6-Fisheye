@@ -10,6 +10,7 @@ class MediaCard {
 
         // Utiliser la méthode createElement pour obtenir l'élément média
         const mediaElement = this.media.createElement();
+        mediaElement.classList.add("media-click");
 
         // Insérer le titre
         const mediaTitle = document.createElement("figcaption");
@@ -28,6 +29,7 @@ class MediaCard {
 
         // Ajouter les éléments à la card
         mediaCard.append(mediaElement, mediaTitle);
+        mediaCard.tabIndex = 0;
 
         return mediaCard;
     }

@@ -34,8 +34,7 @@ function sortMedias(medias, criteria) {
 // Afficher les médias dans le DOM
 function displayMedias(medias, prenom) {
     const mediaContainer = document.querySelector(".photograph-gallery");
-    mediaContainer.innerHTML = ""; // Vider le conteneur avant d'ajouter les nouvelles cartes
-
+    mediaContainer.innerHTML = "";
     medias.forEach(media => {
         const mediaCard = new MediaCard(media, prenom);
         mediaContainer.appendChild(mediaCard.createMediaCard());
@@ -43,18 +42,11 @@ function displayMedias(medias, prenom) {
 }
 
 // Trier et afficher les médias
-async function sortAndDisplayMedias(criteria) {
+async function sortAndDisplayMedias(criteria, prenom) {
     const { photographer, medias } = await getPhotographerData(photographerId);
     const sortedMedias = sortMedias(medias, criteria);
-    displayMedias(photographer, sortedMedias);
+    displayMedias(sortedMedias, prenom);
 }
-
-// Récupérer la valeur du select et appliquer le tri
-const select = document.getElementById("tri");
-select.addEventListener("change", function() {
-    const criteria = select.value;
-    sortAndDisplayMedias(criteria);
-})
 
 async function init() {
     const { photographer, medias } = await getPhotographerData(photographerId);
@@ -62,6 +54,12 @@ async function init() {
     displayPhotographerInfo(photographer);
     displayPhotographerName(photographer);
     displayMedias(medias, prenom);
+    // Récupérer la valeur du select et appliquer le tri
+const select = document.getElementById("tri");
+select.addEventListener("change", function() {
+    const criteria = select.value;
+    sortAndDisplayMedias(criteria, prenom);
+})
 }
 
 init();
