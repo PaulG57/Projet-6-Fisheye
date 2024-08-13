@@ -1,5 +1,11 @@
 const modal = document.getElementById("contact_modal");
 
+// Afficher le nom du photographe dans le titre de la modal
+async function displayPhotographerName(photographer) {
+    const modalTitle = document.getElementById("contact_modal_title");
+    modalTitle.insertAdjacentText("beforeend", photographer.name);
+}
+
 function displayModal() {
 	modal.style.display = "flex";
     modal.setAttribute("aria-hidden", "false");

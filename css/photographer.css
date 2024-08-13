@@ -87,7 +87,6 @@
   margin: 0;
   width: 350px;
   height: 351px;
-  cursor: pointer;
 }
 
 
@@ -96,6 +95,7 @@
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .media-title {
@@ -118,17 +118,22 @@
     padding-top: 5px;	
 }
 
-.media-title span {
+.likes-count {
+    margin: 5px;
+}
+
+.heart {
     font-size: 25px;
     color: transparent; 
     -webkit-text-stroke: 1px #901C1C; /* Ajoute un contour noir */
+    cursor: pointer;
 }
 
 .liked {
     color: #901C1C !important;
 }
 
-#totalLikesNprice {
+.totalLikesPrice {
     position: fixed;
     bottom: -5px;
     right: 30px;

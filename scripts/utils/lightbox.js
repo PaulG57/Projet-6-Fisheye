@@ -36,26 +36,28 @@ function prevMedia() {
 
 // Écouter les clics sur les médias dans la galerie
 document.querySelector(".photograph-gallery").addEventListener("click", (event) => {
-    const mediaCard = event.target.closest(".media-card");
-    if (mediaCard) {
-        const mediaCards = Array.from(document.getElementsByClassName("media-card"));
-        currentIndex = mediaCards.indexOf(mediaCard);
+    const mediaClick = event.target.closest(".media-click");
+    if (mediaClick) {
+        const mediaClicks = Array.from(document.getElementsByClassName("media-click"));
+        currentIndex = mediaClicks.indexOf(mediaClick);
         openLightboxModal();
         updateLightboxContent(currentIndex);
     }
 });
 
+
 document.querySelector(".photograph-gallery").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        const mediaCard = event.target.closest(".media-card");
-        if (mediaCard) {
-            const mediaCards = Array.from(document.getElementsByClassName("media-card"));
-            currentIndex = mediaCards.indexOf(mediaCard);
+        const mediaClick = event.target.closest(".media-click");
+        if (mediaClick) {
+            const mediaClicks = Array.from(document.getElementsByClassName("media-click"));
+            currentIndex = mediaClicks.indexOf(mediaClick);
             openLightboxModal();
             updateLightboxContent(currentIndex);
         }
     }
 });
+
 
 // Gérer les événements clavier
 document.addEventListener("keydown", (event) => {

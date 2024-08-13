@@ -11,6 +11,7 @@ class MediaCard {
         // Utiliser la méthode createElement pour obtenir l'élément média
         const mediaElement = this.media.createElement();
         mediaElement.classList.add("media-click");
+        mediaElement.tabIndex = 0;
 
         // Insérer le titre
         const mediaTitle = document.createElement("figcaption");
@@ -24,12 +25,18 @@ class MediaCard {
         const mediaLikes = document.createElement("p");
         mediaLikes.className = "media-likes";
         mediaLikes.ariaLabel = "likes";
-        mediaLikes.innerHTML = `${this.media.likes} <span class="heart">❤</span>`;
+        const likesCount = document.createElement("span");
+        likesCount.className = "likes-count";
+        likesCount.textContent = this.media.likes;
+        const heartIcon = document.createElement("span");
+        heartIcon.className = "heart";
+        heartIcon.textContent = "❤";
+        mediaLikes.appendChild(likesCount);
+        mediaLikes.appendChild(heartIcon);
         mediaTitle.appendChild(mediaLikes);
 
         // Ajouter les éléments à la card
         mediaCard.append(mediaElement, mediaTitle);
-        mediaCard.tabIndex = 0;
 
         return mediaCard;
     }
