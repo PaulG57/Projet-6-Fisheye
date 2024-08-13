@@ -48,7 +48,8 @@ async function init() {
     const { photographer, medias } = await getPhotographerData(photographerId);
     displayPhotographerInfo(photographer);
     displayPhotographerName(photographer);
-    displayMedias(medias, photographer);
+    const sortedMedias = sortMedias(medias, 'popularite');
+    displayMedias(sortedMedias, photographer);
     // Récupérer la valeur du select et appliquer le tri
     const select = document.getElementById("tri");
     select.addEventListener("change", function() {
