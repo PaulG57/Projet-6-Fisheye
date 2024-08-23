@@ -10,7 +10,7 @@
   <body>
     <header>
       <a href="index.html" aria-label="Retourner sur la page d'accueil">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo">
+        <img src="assets/images/logo.png" class="logo" alt="logo retour a l'accueil">
       </a>
     </header>
     <main id="main">
@@ -44,13 +44,13 @@
         <form id="contact_form">
           <div>
             <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" required aria-describedby="prenom_description">
+            <input type="text" name="prenom" id="prenom" required aria-label="entrez votre prenom">
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" required aria-describedby="nom_description">
+            <input type="text" name="nom" id="nom" required aria-label="entrez votre nom">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" required aria-describedby="email_description">
+            <input type="email" name="email" id="email" required aria-label="entrez votre email">
             <label for="message">Message</label>
-            <textarea name="message" id="message" required aria-describedby="message_description"></textarea>
+            <textarea name="message" id="message" required aria-label="entrez votre message"></textarea>
           </div>
           <button type="submit" class="contact_button" aria-label="Envoyer le formulaire">Envoyer</button>
         </form>

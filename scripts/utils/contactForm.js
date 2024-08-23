@@ -20,7 +20,7 @@ function closeModal() {
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeModal();
-    }})
+    }});
 
 document.getElementById('contact_form').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire

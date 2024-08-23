@@ -55,7 +55,7 @@ async function init() {
     select.addEventListener("change", function() {
     const criteria = select.value;
     sortAndDisplayMedias(criteria);
-})
+});
 }
 
 init();

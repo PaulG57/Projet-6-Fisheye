@@ -59,7 +59,7 @@ function photographerTemplate(data) {
         taglinePhotographer.textContent = tagline;
 
         infoPhotographer.append(namePhotographer, locationPhotographer, taglinePhotographer);
-        return infoPhotographer
+        return infoPhotographer;
     }
 
     function getProfilePhotographerImageDOM() {
@@ -72,7 +72,7 @@ function photographerTemplate(data) {
         photographPicture.className = "photograph-picture";
 
         imagePhotographer.appendChild(photographPicture);
-        return imagePhotographer
+        return imagePhotographer;
     }
 
    
