@@ -14,7 +14,14 @@ function closeLightboxModal() {
 
 function updateLightboxContent(index) {
     const mediaCards = document.getElementsByClassName("media-card");
-    lightboxContent.innerHTML = mediaCards[index].innerHTML;
+        lightboxContent.innerHTML = mediaCards[index].innerHTML;
+    
+    // Activer les contrôles de la vidéo si le média est une vidéo
+    const videoElement = lightboxContent.querySelector("video");
+    if (videoElement) {
+        videoElement.controls = true;
+        videoElement.focus();
+    }
     lightboxPrev.style.display = index === 0 ? "none" : "block";
     lightboxNext.style.display = index === mediaCards.length - 1 ? "none" : "block";
 }

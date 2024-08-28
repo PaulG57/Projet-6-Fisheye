@@ -27,7 +27,7 @@ class Video {
         sourceElement.setAttribute("src", this.src);
         sourceElement.setAttribute("type", "video/mp4");
         video.appendChild(sourceElement);
-        video.controls = true;
+        video.controls = false;
         video.className = "media-video";
         return video;
     }
