@@ -52,7 +52,6 @@ document.querySelector(".photograph-gallery").addEventListener("click", (event) 
     }
 });
 
-
 document.querySelector(".photograph-gallery").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         const mediaClick = event.target.closest(".media-click");
@@ -64,7 +63,6 @@ document.querySelector(".photograph-gallery").addEventListener("keydown", (event
         }
     }
 });
-
 
 // Gérer les événements clavier
 document.addEventListener("keydown", (event) => {

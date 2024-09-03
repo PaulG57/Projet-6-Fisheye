@@ -75,7 +75,5 @@ function photographerTemplate(data) {
         return imagePhotographer;
     }
 
-   
-
     return { getUserCardDOM, getProfilePhotographerInfoDOM, getProfilePhotographerImageDOM };
 }
