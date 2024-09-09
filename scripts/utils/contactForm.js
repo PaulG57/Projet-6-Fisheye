@@ -20,7 +20,24 @@ function closeModal() {
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeModal();
-    }});
+    } else if (event.key === "Tab") {
+        const focusableElements = modal.querySelectorAll("button, input, textarea");
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+                event.preventDefault();
+                lastFocusableElement.focus();
+            }
+        } else {
+            if (document.activeElement === lastFocusableElement) {
+                event.preventDefault();
+                firstFocusableElement.focus();
+            }
+        }
+    }
+    });
 
 document.getElementById('contact_form').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
