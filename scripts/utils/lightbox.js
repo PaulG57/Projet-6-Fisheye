@@ -6,10 +6,12 @@ let currentIndex = 0;
 
 function openLightboxModal() {
     lightboxModal.style.display = "flex";
+    lightboxModal.setAttribute("aria-hidden", "false");
 }
 
 function closeLightboxModal() {
     lightboxModal.style.display = "none";
+    lightboxModal.setAttribute("aria-hidden", "true");
 }
 
 function updateLightboxContent(index) {
@@ -30,6 +32,9 @@ function nextMedia() {
     const mediaCards = document.getElementsByClassName("media-card");
     if (currentIndex < mediaCards.length - 1) {
         currentIndex++;
+        updateLightboxContent(currentIndex);
+    } else if (currentIndex === mediaCards.length - 1) {
+        currentIndex = 0;
         updateLightboxContent(currentIndex);
     }
 }
